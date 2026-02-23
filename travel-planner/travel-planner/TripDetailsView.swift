@@ -16,6 +16,10 @@ struct tripDetailsView: View {
         ScrollView {
             VStack(spacing: 16) {
                 ZStack(alignment: .bottomTrailing) {
+                    LinearGradient(colors: [Color.blue, Color(red: 0.0, green: 0.1, blue: 0.3)],
+                                               startPoint: .top,
+                                               endPoint: .bottom)
+                                    .ignoresSafeArea()
                     if let data = travel.imageData, let uiImage = UIImage(data: data) {
                         Image(uiImage: uiImage)
                             .resizable()
@@ -38,7 +42,7 @@ struct tripDetailsView: View {
                         Label("Destination: \(travel.tripDestination)", systemImage: "mappin.and.ellipse")
                         Label("Start: \(travel.tripStart)", systemImage: "calendar")
                         Label("End: \(travel.tripEnd)", systemImage: "calendar.badge.clock")
-                        Label("Type: \(travel.tripType)", systemImage: "tag.fill")
+                        Label(" \(travel.tripType)", systemImage: "tag.fill")
                     }.font(.body)
                 }.padding()
             }

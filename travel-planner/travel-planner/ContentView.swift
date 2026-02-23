@@ -15,6 +15,12 @@ struct ContentView: View {
 
     var body: some View {
         NavigationStack {
+            ZStack {
+                            LinearGradient(colors: [Color.blue.opacity(0.3), Color.black],
+                                           startPoint: .top,
+                                           endPoint: .bottom)
+                                .ignoresSafeArea()
+                
             List {
                 ForEach($listaviagens) { $viagem in
                     NavigationLink {
@@ -42,11 +48,14 @@ struct ContentView: View {
                                     .font(.subheadline)
                                     .foregroundStyle(.secondary)
                             }
-                        }
-                    }
-                }
-                .onDelete(perform: removerViagem)
-            }
+                                                        }
+                                                    }
+                                                    .listRowBackground(Color.white.opacity(0.05))
+                                                }
+                                                .onDelete(perform: removerViagem)
+                                            }
+                                            .scrollContentBackground(.hidden)
+                                        }
             .navigationTitle("Travel Planner")
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {

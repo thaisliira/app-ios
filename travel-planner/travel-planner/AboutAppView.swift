@@ -9,61 +9,73 @@ import SwiftUI
 
 struct AboutAppView: View {
     var body: some View {
-        ScrollView {
-            VStack(spacing: 35) {
-                VStack(spacing: 10) {
-                    Image(systemName: "airplane.circle.fill")
-                        .font(.system(size: 70))
-                        .foregroundColor(.blue)
-                    
-                    Text("Travel Planner")
-                        .font(.largeTitle)
-                        .fontWeight(.heavy)
-                }
-                .padding(.top, 40)
-
-                VStack(spacing: 5) {
-                    Text("Developed by")
-                        .font(.headline)
-                    Text("Thais Lira")
-                        .foregroundColor(.secondary)
-                }
-
-                VStack(spacing: 12) {
-                    Text("App Features")
-                        .font(.headline)
-                        .foregroundColor(.blue)
-                    
-                    VStack(alignment: .leading, spacing: 8) {
-                        FeatureRow( text: "JSON Data")
-                        FeatureRow( text: "Real-time Editing (@Binding)")
-                        FeatureRow( text: "Device Image Selection")
-                        FeatureRow( text: "Trip Management (Add/Delete/Edit)")
+        ZStack {
+            LinearGradient(colors: [Color.blue.opacity(0.3), Color.black],
+                           startPoint: .top,
+                           endPoint: .bottom)
+                .ignoresSafeArea()
+            
+            ScrollView {
+                VStack(spacing: 35) {
+                    VStack(spacing: 15) {
+                        Image("logo")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 140, height: 130)
+                            .clipShape(Circle())
+                        
+                        Text("Travel Planner")
+                            .font(.largeTitle)
+                            .fontWeight(.heavy)
+                            .foregroundColor(.white)
                     }
-                }
-                .padding()
-                .background(Color.gray.opacity(0.1))
-                .cornerRadius(15)
+                    .padding(.top, 40)
 
-                // App Rating Section
-                VStack(spacing: 10) {
-                    Text("Rate this App")
-                        .font(.headline)
-                    
-                    HStack(spacing: 8) {
-                        ForEach(0..<5) { _ in
-                            Image(systemName: "star.fill")
-                                .foregroundColor(.yellow)
-                                .font(.title2)
+                    VStack(spacing: 5) {
+                        Text("Developed by")
+                            .font(.headline)
+                            .foregroundColor(.white.opacity(0.8))
+                        Text("Thais Lira")
+                            .font(.title3)
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
+                    }
+
+                    VStack(spacing: 12) {
+                        Text("App Features")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                        
+                        VStack(alignment: .leading, spacing: 10) {
+                            FeatureRow(text: "• JSON Data Handling")
+                            FeatureRow(text: "• Real-time Editing (@Binding)")
+                            FeatureRow(text: "• Device Image Selection")
+                            FeatureRow(text: "• Trip Management (Add/Delete/Edit)")
                         }
                     }
-                }
+                    .padding()
+                    .background(Color.blue.opacity(0.3))
+                    .cornerRadius(15)
 
-                Spacer()
+                    VStack(spacing: 10) {
+                        Text("Rate this App")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                        
+                        HStack(spacing: 8) {
+                            ForEach(0..<5) { _ in
+                                Image(systemName: "star.fill")
+                                    .foregroundColor(.yellow)
+                                    .font(.title2)
+                            }
+                        }
+                    }
+
+                    Spacer()
+                }
+                .padding()
             }
-            .padding()
         }
-        .navigationTitle("About")
         .preferredColorScheme(.dark)
     }
 }
@@ -72,9 +84,10 @@ struct FeatureRow: View {
     let text: String
     
     var body: some View {
-        HStack(spacing: 10) {
+        HStack {
             Text(text)
                 .font(.subheadline)
+                .foregroundColor(.white)
         }
     }
 }
