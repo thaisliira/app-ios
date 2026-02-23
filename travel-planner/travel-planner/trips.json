@@ -11,7 +11,7 @@
   {
     "id": 2,
     "tripName": "Northeast Beaches",
-    "tripDestination": "Maceio, Brazil",
+    "tripDestination": "Fernando de Noronha, Brazil",
     "tripStart": "01-07-2026",
     "tripEnd": "10-07-2026",
     "tripType": "Leisure",
@@ -20,7 +20,7 @@
   {
     "id": 3,
     "tripName": "Patagonia Adventure",
-    "tripDestination": "El Calafate, Argentina",
+    "tripDestination": "El Calafate, Patagonia",
     "tripStart": "15-09-2026",
     "tripEnd": "25-09-2026",
     "tripType": "Adventure",
