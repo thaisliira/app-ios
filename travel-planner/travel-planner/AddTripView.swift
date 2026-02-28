@@ -18,7 +18,6 @@ struct AddTripView: View {
     @State private var startDate = ""
     @State private var endDate = ""
     @State private var selectedType = "Leisure"
-    
     @State private var selectedItem: PhotosPickerItem?
     @State private var selectedImageData: Data?
     
@@ -53,10 +52,9 @@ struct AddTripView: View {
                 }
                 
                 Section("Dates") {
-                    TextField("Start (DD/MM/YYYY)", text: $startDate)
-                    TextField("End (DD/MM/YYYY)", text: $endDate)
-                }
-            }
+                    TextField("Start Date (DD/MM/YYYY)", text: $startDate)
+                    TextField("End Date (DD/MM/YYYY)", text: $endDate)
+                }            }
             .navigationTitle("New Trip")
             .onChange(of: selectedItem) { oldValue, newItem in
                 Task {

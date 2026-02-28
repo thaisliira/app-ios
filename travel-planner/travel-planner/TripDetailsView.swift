@@ -52,15 +52,18 @@ struct tripDetailsView: View {
         .sheet(isPresented: $isEditing) {
             NavigationStack {
                 Form {
-                    Section("Edit Information") {
+                    Section() {
                         TextField("Name", text: $travel.tripName)
                         TextField("Destination", text: $travel.tripDestination)
+                        TextField("Start Date (DD/MM/YYYY)", text: $travel.tripStart)
+                        TextField("End Date (DD/MM/YYYY)", text: $travel.tripEnd)
                         Picker("Type", selection: $travel.tripType) {
-                            ForEach(types, id: \.self) { Text($0) }
+                            ForEach(types, id: \.self) { type in
+                                Text(type).tag(type)
+                            }
                         }
-                    }
-                }
-                .navigationTitle("Edit")
+                    }                }
+                .navigationTitle("Edit Information")
                 .toolbar { Button("Done") { isEditing = false } }
             }
         }
